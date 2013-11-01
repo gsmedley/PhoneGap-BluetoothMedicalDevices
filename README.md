@@ -3,6 +3,11 @@ PhoneGap-BluetoothMedicalDevices
 
 Fork of https://bitbucket.org/nexj/mobile-bluetooth-adapters
 
+# To Do
+
+- Test Android devices
+- Bring ios up to 3.0 plugin interface
+
 # Mobile Bluetooth Adapters
 
 This is a javascript interface built to give HTML5 mobile applciations the ability to interact with medical deivce peripherals.
