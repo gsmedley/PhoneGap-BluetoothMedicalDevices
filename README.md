@@ -11,12 +11,18 @@ This javascript interface is shared between the supported mobile platforms: Andr
 
 Each of the supported mobile platforms has an identical implementation of the bluetooth adapter barring platform specific colloquialisms. These implementations handle the various use cases a user may expect when interacting with a medical device peripheral.
 
-## Usage
+# Installing the plugin
+
+Install the core plugin files via the [Command-line Interface](http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface):
+
+    $ phonegap plugin add https://github.com/gsmedley/PhoneGap-BluetoothMedicalDevices
+
+# Using the plugin
 
 ### Available Methods
 
 	:::javascript
-		window.plugins.medicalDevicePlugin.
+		medicalDevicePlugin.
 			on('event', callback(e payload));		// Attaches the provided callback to the specified event
 			remove('event', callback(e, payload));	// Removes the provided callback from the specified event
 			initialize(callback(e, payload));	// Initialize the device plugin
@@ -41,14 +47,14 @@ Each of the supported mobile platforms has an identical implementation of the bl
 ### Initalization
 
 	:::javascript
-		window.plugins.medicalDevicePlugin.initialize();
+		medicalDevicePlugin.initialize();
 		// Any calls to methods which utilizes part of the mobile devices native code
 		// implementation will be deferred until after medicalDevicePlugin.initialize() is called
 
 ### Attaching event handlers and callback structure
 
 	:::javascript
-		window.plugins.medicalDevicePlugin.on('initialize', function(e, payload){
+		medicalDevicePlugin.on('initialize', function(e, payload){
 			// I am the event handler method and I am the same structure as all method callbacks
 			// e is always the first parameter and will be defined if there is an error
 			// the parameter following e will be a payload of information if it is relevant
@@ -134,11 +140,16 @@ Each of the supported mobile platforms has an identical implementation of the bl
 			serial: 5090651014  // Device serial number
 		}
 
-## Design Documentation
+# Uninstalling the plugin
+
+To uninstall the plugin and its components, use:
+
+    $ phonegap plugin remove medicalDevicePlugin
+
+
+# Design Documentation
 
 Docs Wiki - https://bitbucket.org/nexj/mobile-bluetooth-adapters/wiki/Home
 
-## Enabling Technology
 
-Apache Cordova - https://cordova.apache.org/
 

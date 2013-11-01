@@ -1,7 +1,7 @@
 package com.nexj.bluetooth.util;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult;
 
 import android.bluetooth.BluetoothAdapter;
 

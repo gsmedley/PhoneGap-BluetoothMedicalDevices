@@ -1,6 +1,6 @@
 package com.nexj.bluetooth.util;
 
-import org.apache.cordova.api.CallbackContext;
+import org.apache.cordova.CallbackContext;
 
 import com.nexj.bluetooth.BluetoothDeviceAdapter;
 import com.nexj.bluetooth.MedicalDevicePlugin;

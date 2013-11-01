@@ -2,8 +2,8 @@ package com.nexj.bluetooth.util;
 
 import java.util.HashMap;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.PluginResult.Status;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult.Status;
 
 import android.bluetooth.BluetoothAdapter;
 

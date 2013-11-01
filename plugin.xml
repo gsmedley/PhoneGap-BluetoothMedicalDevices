@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="https://github.com/gsmedley/PhoneGap-BluetoothMedicalDevices"
+        id="medicalDevicePlugin"
+        version="0.0.1">
+
+  <name>medicalDevicePlugin</name>
+  <description>Data from bluetooth medical device peripherals</description>
+  <license>?????</license>
+  <keywords>bluetooth, medical, device</keywords>
+  
+  <js-module src="www/medicalDevicePlugin.js" name="medicalDevicePlugin">
+    <clobbers target="medicalDevicePlugin" />
+  </js-module> 
+ 
+
+
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="MedicalDevicePlugin">
+          <param name="android-package" value="com.nexj.bluetooth.MedicalDevicePlugin"/>
+      </feature>
+    </config-file>
+    
+    
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.BLUETOOTH" />
+      <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+      <uses-permission android:name="android.permission.CAMERA" />
+      <uses-permission android:name="android.permission.VIBRATE" />
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.RECEIVE_SMS" />
+      <uses-permission android:name="android.permission.RECORD_AUDIO" />
+      <uses-permission android:name="android.permission.RECORD_VIDEO" />
+      <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+      <uses-permission android:name="android.permission.READ_CONTACTS" />
+      <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+      <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    </config-file>
+
+    <source-file src="src/android/com/nexj/bluetooth/MedicalDevicePlugin.java" target-dir="src/com/nexj/bluetooth" />      
+    <source-file src="src/android/com/nexj/bluetooth/ANDBluetoothServer.java" target-dir="src/com/nexj/bluetooth" />      
+    <source-file src="src/android/com/nexj/bluetooth/BluetoothClient.java" target-dir="src/com/nexj/bluetooth" />      
+    <source-file src="src/android/com/nexj/bluetooth/BluetoothDeviceAdapter.java" target-dir="src/com/nexj/bluetooth" />      
+    <source-file src="src/android/com/nexj/bluetooth/BluetoothServer.java" target-dir="src/com/nexj/bluetooth" />      
+    <source-file src="src/android/com/nexj/bluetooth/BlugluBluetoothClient.java" target-dir="src/com/nexj/bluetooth" />      
+       
+    <source-file src="src/android/com/nexj/bluetooth/util/BluetoothCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/BondedDevicesCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/Command.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/ConnectCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/CordovaCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/DeviceMismatchException.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/DisableCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/DisconnectCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/DiscoverableCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/EnableCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/IsEnabledCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/IsSupportedCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/ResultFactory.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/RunnableCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/StopCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+    <source-file src="src/android/com/nexj/bluetooth/util/TypesCommand.java" target-dir="src/com/nexj/bluetooth/util" />      
+       
+    <source-file src="src/android/com/nexj/bluetooth/parser/PacketParser.java" target-dir="src/com/nexj/bluetooth/parser" />      
+   
+    <source-file src="src/android/com/nexj/bluetooth/parser/AND/ANDBloodPressure.java" target-dir="src/com/nexj/bluetooth/parser/AND" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/AND/ANDHeader.java" target-dir="src/com/nexj/bluetooth/parser/AND" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/AND/ANDPacket.java" target-dir="src/com/nexj/bluetooth/parser/AND" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/AND/ANDPacketParser.java" target-dir="src/com/nexj/bluetooth/parser/AND" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/AND/ANDWeight.java" target-dir="src/com/nexj/bluetooth/parser/AND" />      
+
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/BlugluHeader.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/BlugluPacket.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/BlugluPacketParser.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/CommandFactory.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/MessageSensorConnState.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/MessageSensorInitiatedComm.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+    <source-file src="src/android/com/nexj/bluetooth/parser/bluglu/MessageTimeout.java" target-dir="src/com/nexj/bluetooth/parser/bluglu" />      
+
+  </platform>  
+
+</plugin>

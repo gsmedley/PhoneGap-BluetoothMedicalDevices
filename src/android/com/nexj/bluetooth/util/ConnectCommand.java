@@ -3,8 +3,8 @@ package com.nexj.bluetooth.util;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult;
 
 import android.os.Handler;
 import android.os.Looper;

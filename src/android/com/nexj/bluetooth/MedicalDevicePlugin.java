@@ -11,8 +11,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadPoolExecutor;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -35,8 +38,10 @@ import com.nexj.bluetooth.util.ResultFactory;
 import com.nexj.bluetooth.util.StopCommand;
 import com.nexj.bluetooth.util.TypesCommand;
 
-public class MedicalDevicePlugin
-{
+public class MedicalDevicePlugin extends CordovaPlugin {
+
+	public static final String PLUGIN_NAME = "MedicalDevicePlugin";
+
     public static final String ACTION_ENABLE = "enable";
     public static final String ACTION_DISABLE = "disable";
     public static final String ACTION_REQUEST_DISCOVERABLE = "discoverable";
@@ -47,19 +52,20 @@ public class MedicalDevicePlugin
     public static final String ACTION_CONNECT = "connect";
     public static final String ACTION_DISCONNECT = "disconnect";
 
-    public final Activity m_activity;
-    protected final ExecutorService m_threadPool;
+    public  Activity m_activity;
+    protected  ExecutorService m_threadPool;
 
-    protected final BroadcastReceiver m_broadcastReceiver;
-    protected final List<FutureTask<Runnable>> m_interruptableTasks;
-    protected final Map<String, Vector<Runnable>> m_actionCallbackMap;
-    protected final Map<Runnable, Integer> m_actionStateMap;
-    protected final Map<String, BluetoothDeviceAdapter> m_adapterMap;
+    protected  BroadcastReceiver m_broadcastReceiver;
+    protected  List<FutureTask<Runnable>> m_interruptableTasks;
+    protected  Map<String, Vector<Runnable>> m_actionCallbackMap;
+    protected  Map<Runnable, Integer> m_actionStateMap;
+    protected  Map<String, BluetoothDeviceAdapter> m_adapterMap;
 
-    public MedicalDevicePlugin(Activity activity, ExecutorService threadPool)
-    {
-        m_activity = activity;
-        m_threadPool = threadPool;
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize( cordova, webView );
+
+        m_activity = cordova.getActivity();
+        m_threadPool = cordova.getThreadPool();
 
         m_interruptableTasks = new Vector<FutureTask<Runnable>>(16);
         m_broadcastReceiver = new BluetoothBroadcastReceiver();
